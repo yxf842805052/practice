@@ -1,0 +1,14 @@
+server:
+  port: 1113
+spring:
+  application:
+    name: consumer
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:1111/eureka
+
+

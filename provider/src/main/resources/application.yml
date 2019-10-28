@@ -1,0 +1,28 @@
+server:
+  port: 1112
+spring:
+  application:
+    name: provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jpa?characterEncoding=utf-8&amp&serverTimezone=UTC&amp&useSSL=false
+    username: root
+    password: 123
+  jpa:
+    #jpa正向工程(正向工程:根据实体类生成数据库表，逆向工程:根据数据库表创建实体类)
+    generate-ddl: true
+    #启动项目的时候，创建数据库表(如果表存在，检查表结构和实体类结构是否一致)
+    hibernate:
+      ddl-auto: update
+    #将生成的sql打印到控制台
+    show-sql: true
+    #数据库方言，根据方言生成数据库对应的sql语句
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:1111/eureka
+
